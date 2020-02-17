@@ -8,16 +8,16 @@
 	<bean id="remote" class="com.bit.service.Remote">
 		<constructor-arg ref="radio"></constructor-arg> 생성자로 할 때
 		<property name="remote" ref="radio"></property> set으로 할 때
-	</bean> -->
+	</bean>
 	
-	<!-- <bean id="remote" class="com.bit.service.Remote2">
+	<bean id="remote" class="com.bit.service.Remote2">
 		<property name="msg" value="abcdefg"></property>
 		<property name="num" value="1000"></property>
 		<property name="tf" value="true"></property>
-	</bean> -->
+	</bean>
 	
 	<bean id="remote" class="com.bit.service.Remote3" scope="singleton">
-		<!-- <property name="arr">
+		<property name="arr">
 			<array>
 				<value>a</value>
 				<value>ab</value>
@@ -53,7 +53,7 @@
 					<value>val3</value>
 				</entry>
 			</map>
-		</property> -->
+		</property>
 		<property name="map">
 			<props>
 				<prop key="key1">value1</prop>
@@ -64,5 +64,16 @@
 		</property>
 		
 	
+	</bean> -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://localhost:3306/class03"/>
+		<property name="username" value="scott"/>
+		<property name="password" value="tiger"/>
 	</bean>
+	
+	<bean id="dept01Dao" class="com.bit.model.Dept01DaoImpl">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
 </beans>
