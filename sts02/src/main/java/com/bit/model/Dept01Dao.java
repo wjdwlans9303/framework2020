@@ -7,6 +7,6 @@ import com.bit.model.entity.Dept01Vo;
 
 public interface Dept01Dao{
 	List<Dept01Vo> selectAll() throws SQLException;
-	void insertOne(Dept01Vo bean);
-	int deleteOne(int deptno);
+	void insertOne(Dept01Vo bean) throws SQLException;
+	int deleteOne(int deptno) throws SQLException;
 }

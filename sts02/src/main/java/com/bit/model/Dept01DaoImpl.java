@@ -34,14 +34,29 @@ public class Dept01DaoImpl implements Dept01Dao {
 	}
 
 	@Override
-	public void insertOne(Dept01Vo bean) {
+	public void insertOne(Dept01Vo bean) throws SQLException {
 		String sql="insert into dept01 (dname,loc) values (?,?)";
+		try(
+				Connection conn=dataSource.getConnection();
+				PreparedStatement pstmt=conn.prepareStatement(sql);
+				){
+			pstmt.setString(1, bean.getDname());
+			pstmt.setString(2, bean.getLoc());
+			pstmt.executeUpdate();
+		}
 	}
 
 	@Override
-	public int deleteOne(int deptno) {
+	public int deleteOne(int deptno) throws SQLException {
 		String sql="delete from dept01 where deptno=?";
-		return 0;
+		try(
+				Connection conn=dataSource.getConnection();
+				PreparedStatement pstmt=conn.prepareStatement(sql);
+				){
+			pstmt.setInt(1, deptno);
+			return pstmt.executeUpdate();
+			
+		}
 	}
 
 }

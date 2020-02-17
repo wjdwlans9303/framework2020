@@ -11,6 +11,8 @@ public class Dept01Vo {
 		this.dname = dname;
 		this.loc = loc;
 	}
+	public Dept01Vo() {
+	}
 	@Override
 	public String toString() {
 		return "Dept01Vo [deptno=" + deptno + ", dname=" + dname + ", loc=" + loc + "]";
