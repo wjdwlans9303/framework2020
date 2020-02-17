@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
+		<property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="user" value="scott"/>
+		<property name="password" value="tiger"/>
+	</bean>
+	
+	<bean id="dao" class="com.bit.model.Emp02Dao">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<!-- HandlerMapping -->
+	<bean id="handlerMapping" 
+	class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+	
+	<bean name="/index.bit" class="com.bit.controller.IndexController"></bean>
+	<bean name="/list.bit" class="com.bit.controller.ListController">
+		<property name="dao" ref="dao"/>
+	</bean>
+	
+	<!-- ViewResolver -->
+	<bean id="viewResolver"
+	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+</beans>

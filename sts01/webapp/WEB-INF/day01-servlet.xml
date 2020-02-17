@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
+		<property name="URL" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="user" value="scott"/>
+		<property name="password" value="tiger"/>
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean id="dao" class="com.bit.model.Emp02Dao2">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean>
+	
+	
+
+	<!-- HandlerMapping -->
+	<bean id="handlerMapping" 
+	class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean>
+	
+	<bean name="/index.bit" class="com.bit.controller.IndexController"></bean>
+	<bean name="/list.bit" class="com.bit.controller.ListController">
+		<property name="dao" ref="dao"/>
+	</bean>
+	<bean name="/add.bit" class="com.bit.controller.AddController"></bean>
+	<bean name="/insert.bit" class="com.bit.controller.InsertController">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean name="/detail.bit" class="com.bit.controller.DetailController">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean name="/edit.bit" class="com.bit.controller.EditController">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean name="/update.bit" class="com.bit.controller.UpdateController">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	<bean name="/delete.bit" class="com.bit.controller.DeleteController">
+		<property name="dao" ref="dao"></property>
+	</bean>
+	
+	
+	<!-- ViewResolver -->
+	<bean id="viewResolver"
+	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+</beans>
