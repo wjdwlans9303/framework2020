@@ -3,9 +3,66 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="tv" class="com.bit.service.Tv"></bean>
+	<!-- <bean id="tv" class="com.bit.service.Tv"></bean>
 	<bean id="radio" class="com.bit.service.Radio"></bean>
 	<bean id="remote" class="com.bit.service.Remote">
-		<property name="remote" ref="radio"></property>
+		<constructor-arg ref="radio"></constructor-arg> 생성자로 할 때
+		<property name="remote" ref="radio"></property> set으로 할 때
+	</bean> -->
+	
+	<!-- <bean id="remote" class="com.bit.service.Remote2">
+		<property name="msg" value="abcdefg"></property>
+		<property name="num" value="1000"></property>
+		<property name="tf" value="true"></property>
+	</bean> -->
+	
+	<bean id="remote" class="com.bit.service.Remote3" scope="singleton">
+		<!-- <property name="arr">
+			<array>
+				<value>a</value>
+				<value>ab</value>
+				<value>abc</value>
+				<value>abcd</value>
+			</array>
+		</property>
+		<property name="alist">
+			<list>
+				<value>1</value>
+				<value>12</value>
+				<value>123</value>
+				<value>1234</value>
+			</list>
+		</property>
+		<property name="set">
+			<set>
+				<value>a1</value>
+				<value>a2</value>
+				<value>a1</value>
+				<value>a3</value>
+			</set>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="key1">
+					<value>val1</value>
+				</entry>
+				<entry key="key2">
+					<value>val2</value>
+				</entry>
+				<entry key="key3">
+					<value>val3</value>
+				</entry>
+			</map>
+		</property> -->
+		<property name="map">
+			<props>
+				<prop key="key1">value1</prop>
+				<prop key="key2">value2</prop>
+				<prop key="key3">value3</prop>
+				<prop key="key4">value4</prop>
+			</props>
+		</property>
+		
+	
 	</bean>
 </beans>

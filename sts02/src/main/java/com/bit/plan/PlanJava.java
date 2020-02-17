@@ -8,9 +8,9 @@ public class PlanJava {
 
 	public static void main(String[] args) {
 
-		Remote remote=new Remote();
-//		Remote remote=new Remote(new Tv());
-		remote.setRemote(new Radio());
+//		Remote remote=new Remote();
+		Remote remote=new Remote(new Tv());
+//		remote.setRemote(new Radio());
 		remote.func3();
 	}
 
