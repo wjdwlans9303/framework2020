@@ -18,9 +18,11 @@ public class Ex02Filter implements Filter{
 	}
 
 	@Override
-	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
+	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("두번째 필터..");
+		System.out.println("두번째 필터start...");
+		chain.doFilter(arg0, arg1);
+		System.out.println("두번째 필터end...");
 	}
 
 	@Override

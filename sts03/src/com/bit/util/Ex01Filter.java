@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-public class Ex01Filter implements Filter{
+public class Ex01Filter implements Filter {
 
 	@Override
 	public void destroy() {
@@ -17,14 +17,16 @@ public class Ex01Filter implements Filter{
 	}
 
 	@Override
-	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2)
+	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain chain)
 			throws IOException, ServletException {
-		System.out.println("filter run..");
+		System.out.println("filter run...");
+		chain.doFilter(arg0, arg1);
+		System.out.println("filter end...");
 	}
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		System.out.println("filter init..");
+		System.out.println("filter init...");	
 	}
 
 }

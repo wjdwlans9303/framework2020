@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>sts03</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -19,6 +19,7 @@
   	<url-pattern>/ex01</url-pattern>
   </servlet-mapping>
   
+  
   <filter>
   	<filter-name>bitFilter</filter-name>
   	<filter-class>com.bit.util.Ex01Filter</filter-class>
@@ -32,7 +33,7 @@
   	<filter-name>two</filter-name>
   	<filter-class>com.bit.util.Ex02Filter</filter-class>
   </filter>
-   <filter-mapping>
+  <filter-mapping>
   	<filter-name>two</filter-name>
   	<url-pattern>/ex01</url-pattern>
   </filter-mapping>
