@@ -5,11 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	window.location.href="./emp/list.bit";
-</script>
 </head>
 <body>
-	<h1>INDEX PAGE</h1>
+	<h1>err page</h1>
+	<p>${err }</p>
 </body>
 </html>

@@ -1,17 +1,19 @@
 package com.bit.model.entity;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Emp01Vo {
 
 	private int sabun;
 	private String name;
-	private Date nalja;
+	private Timestamp nalja;
 	private int pay;
 	private int deptno;
 	
-	
-	public Emp01Vo(int sabun, String name, Date nalja, int pay, int deptno) {
+	public Emp01Vo() {
+	}
+
+	public Emp01Vo(int sabun, String name, Timestamp nalja, int pay, int deptno) {
 		super();
 		this.sabun = sabun;
 		this.name = name;
@@ -36,11 +38,11 @@ public class Emp01Vo {
 		this.name = name;
 	}
 
-	public Date getNalja() {
+	public Timestamp getNalja() {
 		return nalja;
 	}
 
-	public void setNalja(Date nalja) {
+	public void setNalja(Timestamp nalja) {
 		this.nalja = nalja;
 	}
 
