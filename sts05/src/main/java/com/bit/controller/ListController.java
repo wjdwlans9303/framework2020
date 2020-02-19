@@ -17,7 +17,7 @@ public class ListController implements Controller {
 	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return new ModelAndView("list");
+		return new ModelAndView("list","list",emp01Dao.selectAll());
 	}
 
 }

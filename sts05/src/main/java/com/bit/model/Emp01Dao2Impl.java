@@ -1,38 +1,25 @@
 package com.bit.model;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
 import com.bit.model.entity.Emp01Vo;
+import com.ibatis.sqlmap.client.SqlMapClient;
 
-public class Emp01Dao1Impl implements Emp01Dao{
-	JdbcTemplate jdbcTemplate;
+public class Emp01Dao2Impl implements Emp01Dao {
+	SqlMapClientTemplate sqlMapClientTemplate;
 	
-	public Emp01Dao1Impl(JdbcTemplate jdbcTemplate) {
-		super();
-		this.jdbcTemplate = jdbcTemplate;
+	public void setSqlMapClientTemplate(SqlMapClientTemplate sqlMapClientTemplate) {
+		this.sqlMapClientTemplate = sqlMapClientTemplate;
 	}
-
+	
 	@Override
 	public List<Emp01Vo> selectAll() throws SQLException {
-		String sql="select * from emp01";
-		
-		return jdbcTemplate.query(sql, new RowMapper<Emp01Vo>() {
-
-			@Override
-			public Emp01Vo mapRow(ResultSet rs, int rowNum) throws SQLException {
-				return new Emp01Vo(
-						rs.getInt(1),
-						rs.getString(2),
-						rs.getDate(3),
-						rs.getInt(4),
-						rs.getInt(5)
-						);
-			}});
+		List<Emp01Vo> list=null;
+		list = sqlMapClientTemplate.queryForList("selectAll");
+		return list;
 	}
 
 	@Override
@@ -44,7 +31,7 @@ public class Emp01Dao1Impl implements Emp01Dao{
 	@Override
 	public void insertOne(Emp01Vo bean) throws SQLException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

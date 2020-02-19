@@ -21,12 +21,12 @@
 			<th>날짜</th>
 			<th>금액</th>
 		</tr>
-		<c:forEach begin="1" end="5" var="bean">
+		<c:forEach items="${list }" var="bean">
 			<tr>
-				<td>${bean }</td>
-				<td>${bean }</td>
-				<td>${bean }</td>
-				<td>${bean }</td>
+				<td>${bean.sabun }</td>
+				<td>${bean.name }</td>
+				<td>${bean.nalja }</td>
+				<td>${bean.pay }</td>
 			</tr>
 		</c:forEach>
 	</table>
