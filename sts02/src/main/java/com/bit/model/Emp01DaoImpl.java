@@ -112,13 +112,11 @@ public class Emp01DaoImpl implements Emp01Dao {
 
 	@Override
 	public int updateOne(Emp01Vo bean) throws SQLException {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public int deleteOne(int num) throws SQLException {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 	
